@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:loja_virtual_principal/datas/products_data.dart';
 
-class CardProduct {
+class CartProduct {
   String cid;
   String category;
   String pid;
@@ -10,7 +10,9 @@ class CardProduct {
 
   ProductData productData;
 
-  CardProduct.fromDocument(DocumentSnapshot document) {
+  CartProduct();
+
+  CartProduct.fromDocument(DocumentSnapshot document) {
     cid = document.documentID;
     category = document.data["category"];
     pid = document.data["pid"];
@@ -24,7 +26,7 @@ class CardProduct {
       "pid": pid,
       "quantity": quantity,
       "size": size,
-      "product": productData.toResumeMap(),
+      // "product": productData.toResumeMap(),
     };
   }
 }
